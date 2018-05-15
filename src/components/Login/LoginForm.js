@@ -1,14 +1,25 @@
 import React, {Component} from 'react';
 import {StyleSheet, View,  TextInput, TouchableOpacity, Text, KeyboardAvoidingView} from 'react-native';
+import Config from '../configuration/config';
+import {createStackNavigator,} from 'react-navigation';
+
+const App = createStackNavigator({Config: {screen: Config,}});
 
 export default class LoginForm extends Component{
+
+    onPress = () =>{
+        console.log('puff1')
+      
+
+    }  
     render() {
+        const {navigate } = this.props.navigation;
         return(
             <KeyboardAvoidingView style={styles.container}>
                 <TextInput
                 placeholder="username or email"
                 placeholderTextColor= 'rgba(255,255,255,0.7)'
-                returnKeyType="next"
+                returnKeyType="next" 
                // onSubmitEditing={() => this.passwordInput.focus()}
                 keyboardType="email-address"
                 autoCapitalize="none"
@@ -21,8 +32,9 @@ export default class LoginForm extends Component{
                  secureTextEntry
                  style= {styles.input}
                 />
-                <TouchableOpacity style={styles.buttonContainer}>
+                <TouchableOpacity  onPress={this.onPress} style={styles.buttonContainer}>
                     <Text style={styles.buttonText}>LOGIN</Text>
+                 {/*   onPress={this.onPress} */}
                 </TouchableOpacity>
             </KeyboardAvoidingView>
         );

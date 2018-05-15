@@ -3,7 +3,12 @@ import {StyleSheet, View, Image, Text} from 'react-native';
 import LoginForm from './LoginForm';
 
 export default class Login extends Component{
+
+    
     render() {
+
+        const {navigate} = this.props.navigation;
+        
         return(
             <View style={styles.container}>
                 <View style={styles.logoContainer}>
@@ -14,12 +19,12 @@ export default class Login extends Component{
                     <Text style={styles.title}>Jiu Jitsu Tracker</Text>
                 </View>
                  <View style={styles.formContainer}>
-                 <LoginForm navigation={this.props.navigation} />
+                 <LoginForm  />
                  </View>
             </View>
         );
-    }
-}
+    } 
+} 
 
 
 const styles = StyleSheet.create({
